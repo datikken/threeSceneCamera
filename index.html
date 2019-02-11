@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        background: red;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Three</title>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script src="three.js"></script>
+    <script>
+      var renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("myCanvas"),
+        antialias: true
+      });
+      //Background of the scene
+      renderer.setClearColor(0x00ff00);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      //Camera
+      var camera = new THREE.PerspectiveCamera(
+        35,
+        window.innerWidth / widow.innerHeight,
+        0.1,
+        3000
+      );
+
+      //Scene
+      var scene = new THREE.Scene();
+
+      //Final Render
+      renderer.render(scene, camera);
+    </script>
+  </body>
+</html>
